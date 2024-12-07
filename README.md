@@ -109,12 +109,7 @@ docker run -d \
 
 
 ### Home Page
-![Screenshot 2024-10-10 185613.png](https://github.com/Bakhtawarkhan90/Wedding-lite/blob/main/Screenshot%202024-10-10%20185613.png?raw=true)
+![](https://github.com/Bakhtawarkhan90/Wedding-lite/blob/main/Screenshot%202024-10-10%20185613.png?raw=true)
 
-### Story Page
-![Contact Page](https://github.com/Bakhtawarkhan90/Wedding-lite/blob/main/Screenshot%202024-10-10%20185750.png?raw=true)
-
-### Gallery Page
-![Features Page](https://github.com/Bakhtawarkhan90/Wedding-lite/blob/main/Screenshot%202024-10-10%20185704.png?raw=true)
 
 
