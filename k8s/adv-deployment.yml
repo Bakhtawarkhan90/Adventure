@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adv-deployment
+  labels:
+    app: advn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: advn
+  template:
+    metadata:
+      labels:
+        app: advn
+    spec:
+      containers:
+        - name: flaskapp
+          image: bakhtawar375/adventure:latest
+          env:
+            - name: MYSQL_HOST
+              value: "database"         # This Is Your MYSQL Service Name Or IP
+            - name: MYSQL_USER
+              value: "root"
+            - name: MYSQL_PASSWORD
+              value: "kali"
+            - name: MYSQL_DB
+              value: "shoot"
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: mysqldata
+              mountPath: /var/lib/mysql
+          imagePullPolicy: Always
+      volumes:
+        - name: mysqldata
+          persistentVolumeClaim:
+            claimName: mysql-pvc
