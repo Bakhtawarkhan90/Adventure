@@ -107,11 +107,6 @@ docker run -d \
 
 # Welcome to Adventure! 
 
-
-### Home Page
-![Screenshot 2024-12-07 122559.png](https://github.com/Bakhtawarkhan90/Adventure.git/blob/main/Screenshot%202024-12-07%20122559.png?raw=true)
-# Adventure
-
 ## Home Page
 ![Home Page](./Screenshot%202024-12-07%20122559.png)
 
