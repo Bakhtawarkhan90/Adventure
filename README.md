@@ -109,7 +109,7 @@ docker run -d \
 
 
 ### Home Page
-![](https://github.com/Bakhtawarkhan90/Adventure.git/blob/main/Screenshot%202024-10-10%20185613.png?raw=true)
+![Screenshot 2024-12-07 122559.png](https://github.com/Bakhtawarkhan90/Adventure.git/blob/main/Screenshot%202024-12-07%20122559.png?raw=true)
 
 
 
