@@ -1,0 +1,45 @@
+version: '3.8'  # Specify the Docker Compose version
+
+services:
+  database:
+    image: mysql:5.7  # Use MySQL version 5.7
+    container_name: database  # Name for the database container
+    volumes:
+      - mysql-data:/var/lib/mysql  # Named volume for persistent MySQL data
+    networks:
+      - advn  # Connect to the advn network
+    environment:
+      MYSQL_DATABASE: shoot      # Database name to create
+      MYSQL_ROOT_PASSWORD: kali  # Root password for MySQL
+      MYSQL_PASSWORD: kali       # Optional, depending on user needs
+    ports:
+      - "3306:3306"  # Map port 3306 to the host
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -pkali || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  flaskapp:
+    build:  # Build the Flask app using the Dockerfile in the current directory
+      context: .
+    image: adventure  # Name for the built image
+    container_name: flaskapp  # Name for the Flask app container
+    networks:
+      - advn  # Connect to the advn network
+    environment:
+      MYSQL_HOST: database  # Hostname of the MySQL container
+      MYSQL_USER: root      # MySQL user
+      MYSQL_PASSWORD: kali  # MySQL password
+      MYSQL_DB: shoot       # Database name
+    ports:
+      - "5000:5000"  # Map port 5000 to the host
+    depends_on:
+      database:
+        condition: service_healthy
+
+networks:
+  advn:  # Define the advn network
+
+volumes:
+  mysql-data:  # Define the named volume for MySQL data persistence
